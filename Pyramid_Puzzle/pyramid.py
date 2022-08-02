@@ -41,12 +41,12 @@ class Pyramid:
 
             # Continue down the pyramid if there are still rows to traverse
             elif current_row_idx < len(self.rows):
-                # Return the path if it's found
-                if self.findPath(target, parent_idx + i, current_row_idx, current_product, current_path):
-                     return self.findPath(target, parent_idx + i, current_row_idx, current_product, current_path)
-                # Continue with the loop
-                else:
-                    self.findPath(target, parent_idx + i, current_row_idx, current_product, current_path)
+                found = self.findPath(target, parent_idx + i, current_row_idx,
+                 current_product, current_path)
+
+                # If path exists, return the path and break out of loop
+                if found:
+                    return found
             
             # Current path doesn't work, continue
             current_path = current_path[:-1]
