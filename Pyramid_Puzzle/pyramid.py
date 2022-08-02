@@ -1,7 +1,46 @@
+"""A class to represent a pyramid.
+
+Attributes:
+    rows: A list of lists containing integers. Each row is one length longer
+     than the previous row, where the first row is of length 1.
+"""
 class Pyramid:
+
+    """Initiates Pyramid class with a list of rows.
+
+    Args:
+        rows: A list of rows representing the pyramid.
+    """
     def __init__(self, rows):
         self.rows = rows
 
+    """ Finds a path in the Pyramid whose product is equal to the target.
+
+    Recurses down the entire pyramid from left to right as long as the running
+    product is less than the target. 
+
+    Args:
+        self: A Pyramid object.
+        target: The product of the path to search for.
+        parent_idx: The parent index of the current element in the Pyramid.
+        current_row_idx: The index of the current Pyramid row.
+        current_product: The running product of the current path.
+        current_path: A string consisting of "L" or "R" depending on the
+            running path.
+
+    Returns:
+        The path of the Pyramid whose product is equal to the target. 
+        For example, given the following pyramid:
+
+          [1]
+         [2,3]
+        [4,1,1]
+
+        Target: 8
+        Output: "LL"
+
+        Paths which do not exist will return an empty string.
+    """
     def findPath(self, target, parent_idx = 0, current_row_idx=1,
      current_product=None, current_path = ""):
 
