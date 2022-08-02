@@ -51,7 +51,6 @@ class Pyramid:
         current_row = self.rows[current_row_idx]
 
         # Left path, right path
-        # parentIdx is of previous row
         left, right = current_row[parent_idx], current_row[parent_idx + 1]
         
         # Traverse down the Pyramid
